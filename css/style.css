@@ -89,6 +89,7 @@ header {
   background: #282828;
   width: 100%;
   position: fixed;
+  z-index:20;
 }
 
 .header__nav {
