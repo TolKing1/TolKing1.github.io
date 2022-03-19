@@ -89,7 +89,6 @@ header {
   background: #282828;
   width: 100%;
   position: fixed;
-  z-index:20;
 }
 
 .header__nav {
@@ -104,6 +103,29 @@ header {
 
 .header__shop {
   margin-left: 25px;
+}
+
+.header__search-img {
+  margin-left: 5px;
+  position: relative;
+}
+
+.header__search-input {
+  width: 0;
+  background-color: transparent;
+  border-bottom: 2px solid #151515;
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+}
+
+.header__search-input:focus {
+  color: #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.header__search-input.active {
+  width: 100%;
 }
 
 .burger {
@@ -173,12 +195,47 @@ header {
   background-color: #282828;
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
-  z-index: 99;
+  z-index: 99 !important;
 }
 
 .sidebar.active {
   -webkit-transform: translateX(0);
           transform: translateX(0);
+}
+
+.sidebar__search {
+  -webkit-transition: all 0.3 ease-in;
+  transition: all 0.3 ease-in;
+}
+
+.sidebar__search-img {
+  margin-left: 5px;
+  position: relative;
+  -webkit-transition: all 0.3 ease-in;
+  transition: all 0.3 ease-in;
+}
+
+.sidebar__wrapper {
+  -webkit-transition: all 0.3 ease-in;
+  transition: all 0.3 ease-in;
+}
+
+.sidebar__search-input {
+  width: 0;
+  background-color: transparent;
+  border-bottom: 2px solid #151515;
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+}
+
+.sidebar__search-input:focus {
+  color: #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.sidebar__search-input.active {
+  width: 100%;
 }
 
 .header__content {
@@ -259,6 +316,14 @@ main {
   height: 100%;
 }
 
+.carousel {
+  position: relative;
+}
+
+.owl-carousel {
+  position: absolute;
+}
+
 .item__card {
   max-width: 255px !important;
   padding: 15px 0 22px;
@@ -296,6 +361,120 @@ main {
   margin-top: 20px;
   color: #fff;
   background: #151515;
+}
+
+body {
+  position: relative;
+}
+
+.modal {
+  padding: 20px;
+}
+
+.modal__overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
+  z-index: 20;
+}
+
+.modal__popup {
+  position: fixed;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 30%;
+  -webkit-transform: translate(0, -300%);
+          transform: translate(0, -300%);
+  padding: 20px;
+  background-color: #fcfcfc;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
+  z-index: 21;
+  text-align: center;
+}
+
+.modal__popup.active {
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 2rem;
+}
+
+.modal__input-name {
+  width: 100%;
+  margin: 30px 0;
+  padding: 1rem 0.2rem 0.3rem;
+  border: 2px solid transparent;
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+}
+
+.modal__input-name:focus {
+  border-bottom: 2px solid #151515;
+}
+
+.modal__input-number {
+  width: 100%;
+  padding: 0 0.2rem 0.3rem;
+  border: 2px solid transparent;
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+}
+
+.modal__input-number:focus {
+  border-bottom: 2px solid #151515;
+}
+
+.modal__submit-btn {
+  background: none;
+  border: 2px solid;
+  line-height: 1;
+  margin: 0.9rem 0;
+  padding: 1em 2em;
+  color: #000000;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+
+.modal__submit-btn:hover, .modal__submit-btn:focus, .modal__submit-btn:active {
+  background-color: #000;
+  border-color: black;
+  color: #fff;
+}
+
+.modal__submit-btn:hover:hover, .modal__submit-btn:hover:focus, .modal__submit-btn:focus:hover, .modal__submit-btn:focus:focus, .modal__submit-btn:active:hover, .modal__submit-btn:active:focus {
+  -webkit-animation: pulse 1s;
+          animation: pulse 1s;
+  -webkit-box-shadow: 0 0 0 2em rgba(0, 0, 0, 0);
+          box-shadow: 0 0 0 2em rgba(0, 0, 0, 0);
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 black;
+            box-shadow: 0 0 0 0 black;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 black;
+            box-shadow: 0 0 0 0 black;
+  }
 }
 
 footer {
@@ -354,6 +533,9 @@ footer {
 @media screen and (max-width: 768px) {
   .header__content-title {
     font-size: 65px;
+  }
+  .header__nav-link {
+    display: none;
   }
   .details__title {
     font-size: 14px;

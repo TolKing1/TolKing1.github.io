@@ -16,6 +16,8 @@ $clrBlack: #000;
 $clrMain:#151515;
 $clrBtn: #171718;
 $clrFooter_Nav: #282828;
+$color:#000000;
+$hoverBtn: #{adjust-hue($color, 45deg)};
 body{
     font-weight: 500;
     font-family: $font;
@@ -44,6 +46,24 @@ header{
     }
     &__shop {
         margin-left: 25px;
+    }
+    &__search-img{
+        margin-left: 5px;
+        position: relative;
+    }
+    &__search-input{
+        width: 0;
+        background-color: transparent;
+        border-bottom: 2px solid #151515;
+        transition: all 0.4s ease-in;
+        &:focus{
+            color: #fff;
+            border-bottom: 2px solid #fff;
+        }
+        transition: all 0.4s ease-in;
+        &.active{
+            width: 100%;
+        }
     }
 }
 .burger{
@@ -102,9 +122,34 @@ header{
     background-color: #282828;
     transition: all 1s ease;
 
-    z-index: 99;
+    z-index: 99 !important;
     &.active{
         transform: translateX(0);
+    }
+    &__search{
+        transition: all 0.3 ease-in;
+    }
+    &__search-img{
+        margin-left: 5px;
+        position: relative;
+        transition: all 0.3 ease-in;
+    }
+    &__wrapper{
+        transition: all 0.3 ease-in;
+    }
+    &__search-input{
+        width: 0;
+        background-color: transparent;
+        border-bottom: 2px solid #151515;
+        transition: all 0.4s ease-in;
+        &:focus{
+            color: #fff;
+            border-bottom: 2px solid #fff;
+        }
+        transition: all 0.4s ease-in;
+        &.active{
+            width: 100%;
+        }
     }
 }
 
@@ -184,6 +229,14 @@ main{
     width: auto !important;
     height: 100%;
 }
+.carousel{
+    position: relative;
+}
+
+.owl-carousel {
+    position: absolute;
+}
+
 .item {
 
 		&__card {
@@ -226,6 +279,102 @@ main{
 
 		}
 }
+// Modal
+body{
+    position: relative;
+}
+.modal{
+
+    padding: 20px;
+    &__overlay {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.8);
+        display: none;
+        transition: all 400ms ease;
+        z-index: 20;
+    }
+
+    &__popup {
+        position: fixed;
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        top: 30%;
+        transform: translate(0,-300%);
+        padding: 20px;
+        background-color: #fcfcfc;
+        transition: all 400ms ease;
+        z-index: 21;
+        text-align: center;
+        &.active{
+            transform: translate(0, 0)
+        }
+    }
+
+
+    &__close-btn {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        font-size: 2rem;
+    }
+
+    
+
+    &__input-name {
+        width: 100%;
+        margin: 30px 0;
+        padding: 1rem 0.2rem 0.3rem;
+        border: 2px solid transparent;
+        &:focus{
+            border-bottom: 2px solid #151515;
+        }
+        transition: all 0.4s ease-in;
+    }
+    &__input-number {
+        width: 100%;
+        padding: 0 0.2rem 0.3rem;
+        border: 2px solid transparent;
+        &:focus{
+            border-bottom: 2px solid #151515;
+        }
+        transition: all 0.4s ease-in;
+    }
+
+    &__submit-btn {
+        background: none;
+        border: 2px solid;
+        line-height: 1;
+        margin: 0.9rem 0;
+        padding: 1em 2em;
+        color: $color;
+        transition: 0.25s;
+        
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: #000;
+            border-color: $hoverBtn;
+            color: #fff;
+        &:hover, 
+        &:focus {
+        animation: pulse 1s;
+        box-shadow: 0 0 0 2em rgba(#000,0);
+        }
+
+        @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 $hoverBtn; }
+        }
+    }
+}
+}
+
 //footer
 footer{
     background: $clrFooter_Nav;
@@ -330,6 +479,9 @@ footer{
         &__content-title {
             font-size: 65px;
 		}
+        &__nav-link{
+            display: none;
+        }
     
 }
     //details
